@@ -1,12 +1,27 @@
 {
   "name": "@scripters/use-socketio",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "React hook for socket.io",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release",
+    "cz": "git-cz"
   },
   "keywords": [],
   "author": "Wojciech Fałowski",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scripters-dev/use-socketio.git"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.0.2",
+    "semantic-release": "^15.13.24"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
