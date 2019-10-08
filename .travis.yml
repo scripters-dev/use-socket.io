@@ -3,6 +3,8 @@ language: node_js
 node_js:
   - 10
 
+cache: yarn
+
 jobs:
   include:
     - stage: eslint
@@ -15,3 +17,5 @@ jobs:
         provider: script
         skip_cleanup: true
         script: yarn semantic-release
+        on:
+          branch: master

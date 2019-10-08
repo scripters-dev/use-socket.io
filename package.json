@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "React hook for socket.io",
   "main": "lib/index.js",
+  "private": false,
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
