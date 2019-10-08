@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - 10
+
+jobs:
+  include:
+    - stage: eslint
+      script:
+        - yarn lint
+    - stage: release
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script: yarn semantic-release
