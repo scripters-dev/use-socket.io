@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "module": "commonjs",
+        "declaration": true,
+        "jsx": "react",
+        "outDir": "lib",
+        "strict": true,
+        "removeComments": true
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

@@ -1,27 +1,49 @@
 {
-  "name": "@scripters/use-socketio",
+  "name": "@scripters/use-socket.io",
   "version": "0.0.0-development",
   "description": "React hook for socket.io",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "build": "tsc",
+    "lint": "eslint 'src/**'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "semantic-release": "semantic-release",
     "cz": "git-cz"
   },
   "keywords": [],
-  "author": "Wojciech Fałowski",
+  "author": "Wojciech Fałowski <falowski.w@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/scripters-dev/use-socketio.git"
   },
   "devDependencies": {
+    "@types/react": "^16.9.5",
+    "@types/react-dom": "^16.9.1",
+    "@types/socket.io-client": "^1.4.32",
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
     "cz-conventional-changelog": "^3.0.2",
-    "semantic-release": "^15.13.24"
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "semantic-release": "^15.13.24",
+    "typescript": "^3.6.3"
+  },
+  "peerDependencies": {
+    "react-dom": "^16.10.2"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "socket.io-client": "^2.3.0"
   }
 }
