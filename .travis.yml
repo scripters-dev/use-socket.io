@@ -9,6 +9,8 @@ jobs:
       script:
         - yarn lint
     - stage: release
+      script:
+        - yarn build
       deploy:
         provider: script
         skip_cleanup: true

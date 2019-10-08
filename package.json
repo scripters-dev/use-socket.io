@@ -3,10 +3,11 @@
   "version": "0.0.0-development",
   "description": "React hook for socket.io",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "lint": "eslint 'src/**'",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "semantic-release": "semantic-release",
     "cz": "git-cz"
   },
