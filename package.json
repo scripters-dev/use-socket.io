@@ -45,6 +45,9 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "socket.io-client": "^2.3.0"
   }
