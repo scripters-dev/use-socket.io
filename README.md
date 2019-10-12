@@ -1,7 +1,3 @@
-### Work in progress
-
-This package is still in development state. Do not use it on production. 
-
 # @scripters/use-socket.io
 
 Use socket.io library easily with React hooks
@@ -20,7 +16,10 @@ yarn add @scripters/use-socket.io
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/scripters-dev/use-socket.io/tags). 
+
+## Roadmap
+See the [open issues]() for a list of proposed features (and known issues).
 
 ## License
 
