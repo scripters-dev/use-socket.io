@@ -5,7 +5,7 @@ import Context from './context';
 
 interface ProviderProps {
     url: string,
-    options: object,
+    options?: object,
 }
 
 interface ProviderState {
@@ -16,7 +16,7 @@ class Provider extends React.Component<ProviderProps, ProviderState> {
     constructor(props: ProviderProps) {
         super(props);
         this.state = {
-            socket: io(props.url, props.options),
+            socket: io(props.url, props.options || {}),
         };
     }
 
