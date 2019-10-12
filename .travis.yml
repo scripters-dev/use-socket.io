@@ -7,10 +7,12 @@ cache: yarn
 
 jobs:
   include:
-    - stage: eslint
+    - stage: quality check
+      if: branch != master OR (branch = master and type = pull_request)
       script:
         - yarn lint
-    - stage: release
+        - yarn test
+    - stage: build & release
       script:
         - yarn build
       deploy:

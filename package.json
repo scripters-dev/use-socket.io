@@ -2,8 +2,8 @@
   "name": "@scripters/use-socket.io",
   "version": "0.1.0",
   "description": "React hook for socket.io",
-  "main": "lib/index.js",
   "private": false,
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
@@ -12,12 +12,17 @@
     "semantic-release": "semantic-release",
     "cz": "git-cz"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "hooks",
+    "socket",
+    "socket.io"
+  ],
   "author": "Wojciech Fałowski <falowski.w@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/scripters-dev/use-socketio.git"
+    "url": "https://github.com/scripters-dev/use-socket.io.git"
   },
   "devDependencies": {
     "@types/react": "^16.9.5",
@@ -37,7 +42,11 @@
     "semantic-release": "^15.13.24",
     "typescript": "^3.6.3"
   },
+  "dependencies": {
+    "socket.io-client": "^2.3.0"
+  },
   "peerDependencies": {
+    "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
   "config": {
@@ -47,8 +56,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "socket.io-client": "^2.3.0"
   }
 }
