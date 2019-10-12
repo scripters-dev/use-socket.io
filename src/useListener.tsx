@@ -4,7 +4,9 @@ import Context from './context';
 
 type SocketCallbackType = (data: any) => void;
 
-export default function useListener(eventName: string, callback: SocketCallbackType) {
+interface UseListenerReturn extends Array<() => void>{0:() => void; 1:() => void}
+
+export default function useListener(eventName: string, callback: SocketCallbackType): UseListenerReturn {
     const socket = useContext(Context);
 
     const callbackRef = useRef(callback);
@@ -21,4 +23,9 @@ export default function useListener(eventName: string, callback: SocketCallbackT
         }
         return () => {};
     }, [eventName]);
+
+    return [
+        () => (socket && !socket.hasListeners(eventName) ? socket.on(eventName, callbackHandler) : null),
+        () => (socket ? socket.removeListener(eventName, callbackHandler) : null),
+    ];
 }
