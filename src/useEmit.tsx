@@ -9,6 +9,6 @@ export default function useEmit() {
         return (eventName: string, eventData: any) => socket.emit(eventName, eventData);
     }
     return () => {
-        console.warn('Socket is not initialized yet');
+        console.warn('Emit failed - socket is not initialized'); // eslint-disable-line
     };
 }

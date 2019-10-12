@@ -1,5 +1,9 @@
+# IDE
 .idea
+.vscode
 
+# Modules
 node_modules
 
+# build
 lib
