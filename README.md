@@ -161,7 +161,7 @@ const App = () => {
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/scripters-dev/use-socket.io/tags). 
 
 ## Roadmap
-See the [open issues]() for a list of proposed features (and known issues).
+See the [open issues](https://github.com/scripters-dev/use-socket.io/issues) for a list of proposed features (and known issues).
 
 ## License
 
