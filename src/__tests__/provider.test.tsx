@@ -1,19 +1,21 @@
-import React from "react";
-import {shallow} from "enzyme";
-import Provider from "../src/provider";
+import * as React from 'react';
+import { shallow } from 'enzyme';
 
-jest.mock("socket.io-client", () => () => ({
-    socket: "this is a socket"
-}));
+import Provider from '../provider';
+import mockSocket from './mocks/socket-mock';
 
-describe("Test provider", () => {
-    const props: ProviderProps = {
-        url: 'http://local.test/',
-    };
+const url = 'http://local.test/';
 
-    const getWrapper = () => shallow(Provider);
+jest.mock('socket.io-client', () => () => mockSocket);
 
-    it("should match snapshot", () => {
+describe('Test provider', () => {
+    const getWrapper = () => shallow(
+        <Provider url={url}>
+        Test
+        </Provider>,
+    );
+
+    it('should match snapshot', () => {
         expect(getWrapper()).toMatchSnapshot();
     });
 });

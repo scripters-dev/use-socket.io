@@ -17,7 +17,7 @@ yarn add @scripters/use-socket.io
 ## Usage
 
 #### Provider
-```$js
+```
 import React from 'react';
 import { Provider } from '@scripters/use-socketio';
 
@@ -32,7 +32,7 @@ const SOCKET_OPTIONS = {
 ```
 
 #### useSocket
-```$js
+```
 import React, { useEffect, useState } from 'react';
 import { useSocket } from '@scripters/use-socket.io';
 
@@ -60,7 +60,7 @@ export default ChatStatus;
 
 #### useListener
 
-```$js
+```
 import React, { useState } from 'react';
 import { useListener } from '@scripters/use-socket.io';
 
@@ -83,7 +83,7 @@ export default ChatStatus;
 
 #### useListener with pause
 
-```$js
+```
 import React, { useState } from 'react';
 import { useListener } from '@scripters/use-socket.io';
 
@@ -110,7 +110,7 @@ export default ChatStatus;
 
 #### useEmit
 
-```$js
+```
 import React from 'react';
 import { useEmit } from '@scripters/use-socket.io';
 
@@ -136,7 +136,7 @@ export default ChatMessage;
 
 Sometimes you want to be sure that all listeners are attached to the socket before connection is established. It's helpful when you want to handle events which socket server sends right after client is connected (e.g. `connect`). To solve that you can use socket option `autoConnect: false` and `socket.open()` right after all listeners attach call.
 
-```$js
+```
 import React, { useState } from 'react';
 import { Provider, useSocket, useListener } from '@scripters/use-socket.io';
 
