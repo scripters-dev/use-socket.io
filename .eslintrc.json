@@ -37,6 +37,10 @@
             {
                 "devDependencies": true
             }
+        ],
+        "max-len": [
+            "error",
+            120
         ]
     },
     "settings": {
