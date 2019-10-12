@@ -1,6 +1,6 @@
 {
   "name": "@scripters/use-socket.io",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "React hook for socket.io",
   "private": false,
   "main": "lib/index.js",
