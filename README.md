@@ -1,5 +1,5 @@
 # @scripters/use-socket.io 
-[![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url]
+[![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![eslint][eslint-image]][eslint-url] [![react][react-image]][react-url]
                            
 [travis-image]: https://travis-ci.org/scripters-dev/use-socket.io.svg?branch=master
 [travis-url]: https://travis-ci.org/scripters-dev/use-socket.io
@@ -7,8 +7,10 @@
 [npm-url]: https://npmjs.org/package/@scripters/use-socket.io
 [downloads-image]: https://img.shields.io/npm/dm/@scripters/use-socket.io.svg
 [downloads-url]: https://npmjs.org/package/@scripters/use-socket.io
-[standard-image]: https://img.shields.io/npm/dependency-version/@scripters/use-socket.io/dev/eslint
-[standard-url]: https://eslint.org
+[eslint-image]: https://img.shields.io/npm/dependency-version/@scripters/use-socket.io/dev/eslint
+[eslint-url]: https://eslint.org
+[react-image]: https://img.shields.io/npm/dependency-version/@scripters/use-socket.io/dev/react
+[react-url]: https://reactjs.org/
 
 Use socket.io library easily with React hooks
 
