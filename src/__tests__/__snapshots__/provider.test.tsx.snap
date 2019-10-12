@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test provider should match snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "connected": true,
+      "disconnect": [Function],
+      "emit": [Function],
+      "hasListeners": [Function],
+      "id": "test",
+      "on": [Function],
+      "open": [Function],
+    }
+  }
+>
+  Test
+</ContextProvider>
+`;
