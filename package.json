@@ -7,6 +7,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "dev": "tsc --watch",
     "lint": "eslint 'src/**'",
     "test": "jest",
     "semantic-release": "semantic-release",

@@ -28,6 +28,8 @@ yarn add @scripters/use-socket.io
 
 ## Usage
 
+[API](https://github.com/scripters-dev/use-socket.io/wiki/API)
+
 #### Provider
 ```javascript
 import React from 'react';
