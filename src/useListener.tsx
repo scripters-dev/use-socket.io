@@ -8,13 +8,19 @@ import {
 import Context from './context';
 
 type SocketCallbackType = (data: any) => void;
+type UseListenerOptions = {
+    autoSubscribe?: boolean,
+}
 
 interface UseListenerReturn extends Array<() => void> {
     0: () => void;
     1: () => void
 }
 
-export default function useListener(eventName: string, callback: SocketCallbackType): UseListenerReturn {
+type useListenerFunction = (eventName: string, callback: SocketCallbackType, options?: UseListenerOptions) =>
+    UseListenerReturn;
+
+const useListener: useListenerFunction = (eventName, callback, options = {}) => {
     const socket = useContext(Context);
     const callbackRef = useRef(callback);
 
@@ -31,7 +37,9 @@ export default function useListener(eventName: string, callback: SocketCallbackT
     }, [socket, eventName]);
 
     useEffect(() => {
-        subscribeToEvent();
+        if (options.autoSubscribe !== false) {
+            subscribeToEvent();
+        }
 
         return () => {
             unsubscribeFromEvent();
@@ -42,4 +50,6 @@ export default function useListener(eventName: string, callback: SocketCallbackT
         subscribeToEvent,
         unsubscribeFromEvent,
     ];
-}
+};
+
+export default useListener;
