@@ -35,7 +35,7 @@ yarn add @scripters/use-socket.io
 import React from 'react';
 import { Provider } from '@scripters/use-socketio';
 
-const SOCKET_URL = http://localhost:4000;
+const SOCKET_URL = 'http://localhost:4000';
 const SOCKET_OPTIONS = {
     forceNew: true,
 };
