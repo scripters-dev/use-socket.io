@@ -6,11 +6,12 @@ exports[`Test provider should match snapshot 1`] = `
     Object {
       "connected": true,
       "disconnect": [Function],
-      "emit": [Function],
+      "emit": [MockFunction],
       "hasListeners": [Function],
       "id": "test",
-      "on": [Function],
-      "open": [Function],
+      "on": [MockFunction],
+      "open": [MockFunction],
+      "removeListener": [MockFunction],
     }
   }
 >

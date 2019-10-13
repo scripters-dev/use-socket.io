@@ -3,9 +3,10 @@ let connected = true;
 export default ({
     id: 'test',
     connected,
-    open: () => {},
-    emit: () => {},
-    on: () => {},
+    open: jest.fn(),
+    emit: jest.fn(),
+    on: jest.fn(),
+    removeListener: jest.fn(),
     disconnect: () => { connected = false; },
-    hasListeners: () => false,
+    hasListeners: (value: string) => value !== 'test',
 });
