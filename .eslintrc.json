@@ -42,7 +42,8 @@
         "max-len": [
             "error",
             120
-        ]
+        ],
+        "implicit-arrow-linebreak": ["error", "below"]
     },
     "settings": {
         "import/resolver": {

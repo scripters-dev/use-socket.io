@@ -6,9 +6,11 @@ import {
 } from 'react';
 
 import Context from './context';
+import { getSocketConnection } from './utils';
 
 type SocketCallbackType = (data: any) => void;
 type UseListenerOptions = {
+    namespace?: string,
     autoSubscribe?: boolean,
 }
 
@@ -21,20 +23,21 @@ type useListenerFunction = (eventName: string, callback: SocketCallbackType, opt
     UseListenerReturn;
 
 const useListener: useListenerFunction = (eventName, callback, options = {}) => {
-    const socket = useContext(Context);
+    const { socket, namespaces } = useContext(Context);
+    const socketConnection = getSocketConnection(namespaces, socket, options.namespace);
     const callbackRef = useRef(callback);
 
     const subscribeToEvent = useCallback(() => {
-        if (socket && !socket.hasListeners(eventName)) {
-            socket.on(eventName, callbackRef.current);
+        if (socketConnection && !socketConnection.hasListeners(eventName)) {
+            socketConnection.on(eventName, callbackRef.current);
         }
-    }, [socket, eventName]);
+    }, [socketConnection, eventName]);
 
     const unsubscribeFromEvent = useCallback(() => {
-        if (socket && socket.hasListeners(eventName)) {
-            socket.removeListener(eventName, callbackRef.current);
+        if (socketConnection && socketConnection.hasListeners(eventName)) {
+            socketConnection.removeListener(eventName, callbackRef.current);
         }
-    }, [socket, eventName]);
+    }, [socketConnection, eventName]);
 
     useEffect(() => {
         if (options.autoSubscribe !== false) {
