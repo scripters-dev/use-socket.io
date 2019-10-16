@@ -45,6 +45,21 @@ const SOCKET_OPTIONS = {
 </Provider>
 ```
 
+#### Provider with namespaces
+```javascript
+import React from 'react';
+import { Provider } from '@scripters/use-socketio';
+
+const SOCKET_URL = 'http://localhost:4000';
+const SOCKET_OPTIONS = {
+    forceNew: true,
+};
+
+<Provider url={SOCKET_URL} options={SOCKET_OPTIONS} namespaces={['test']}>
+    <App />
+</Provider>
+```
+
 #### useSocket
 ```javascript
 import React, { useEffect, useState } from 'react';
