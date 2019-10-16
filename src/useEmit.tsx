@@ -1,14 +1,28 @@
 import { useContext } from 'react';
 
 import Context from './context';
+import { getSocketConnection } from './utils';
 
-export default function useEmit() {
-    const socket = useContext(Context);
+interface emitOptions {
+    namespace?: string,
+}
 
-    if (socket) {
-        return (eventName: string, eventData: any) => socket.emit(eventName, eventData);
+type useEmitType = (options?: emitOptions) =>
+    (eventName: string, eventData: any) => void;
+
+const emitEvent = (socketConnection: SocketIOClient.Socket) =>
+    (eventName: string, eventData: any) =>
+        socketConnection.emit(eventName, eventData);
+
+const useEmit: useEmitType = (options = {}) => {
+    const socketConnection = getSocketConnection(useContext(Context))(options.namespace);
+
+    if (socketConnection) {
+        return emitEvent(socketConnection);
     }
     return () => {
         console.warn('Emit failed - socket is not initialized'); // eslint-disable-line
     };
-}
+};
+
+export default useEmit;

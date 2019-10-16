@@ -7,7 +7,9 @@ import mockSocket, { cleanupListeners } from './mocks/socket-mock';
 
 const url = 'http://local.test/';
 
-jest.mock('socket.io-client', () => () => mockSocket);
+jest.mock('socket.io-client', () =>
+    () =>
+        mockSocket);
 
 describe('Test useSocket', () => {
     beforeEach(() => {
@@ -17,8 +19,10 @@ describe('Test useSocket', () => {
     });
 
     it('should be automatically called', () => {
-        const wrapper = ({ children }: any) => (<Provider url={url}>{children}</Provider>);
-        const { result } = renderHook(() => useListener('test', () => {}), { wrapper });
+        const wrapper = ({ children }: any) =>
+            (<Provider url={url}>{children}</Provider>);
+        const { result } = renderHook(() =>
+            useListener('test', () => {}), { wrapper });
 
         expect(result.current).toBeInstanceOf(Array);
         expect(mockSocket.on).toBeCalledTimes(1);
@@ -28,9 +32,11 @@ describe('Test useSocket', () => {
     });
 
     it('should not be automatically called', () => {
-        const wrapper = ({ children }: any) => (<Provider url={url}>{children}</Provider>);
+        const wrapper = ({ children }: any) =>
+            (<Provider url={url}>{children}</Provider>);
         const { result } = renderHook(
-            () => useListener('test', () => {}, { autoSubscribe: false }),
+            () =>
+                useListener('test', () => {}, { autoSubscribe: false }),
             { wrapper },
         );
 
@@ -42,9 +48,11 @@ describe('Test useSocket', () => {
     });
 
     it('should be called after subscribe function call', () => {
-        const wrapper = ({ children }: any) => (<Provider url={url}>{children}</Provider>);
+        const wrapper = ({ children }: any) =>
+            (<Provider url={url}>{children}</Provider>);
         const { result } = renderHook(
-            () => useListener('test', () => {}, { autoSubscribe: false }),
+            () =>
+                useListener('test', () => {}, { autoSubscribe: false }),
             { wrapper },
         );
 
@@ -58,9 +66,11 @@ describe('Test useSocket', () => {
     });
 
     it('should be subscribed and unsubscribed after functions calls', () => {
-        const wrapper = ({ children }: any) => (<Provider url={url}>{children}</Provider>);
+        const wrapper = ({ children }: any) =>
+            (<Provider url={url}>{children}</Provider>);
         const { result } = renderHook(
-            () => useListener('test-failed', () => {}, { autoSubscribe: false }),
+            () =>
+                useListener('test-failed', () => {}, { autoSubscribe: false }),
             { wrapper },
         );
 
@@ -75,9 +85,11 @@ describe('Test useSocket', () => {
     });
 
     it('should be subscribed only once', () => {
-        const wrapper = ({ children }: any) => (<Provider url={url}>{children}</Provider>);
+        const wrapper = ({ children }: any) =>
+            (<Provider url={url}>{children}</Provider>);
         const { result } = renderHook(
-            () => useListener('test-failed', () => {}, { autoSubscribe: false }),
+            () =>
+                useListener('test-failed', () => {}, { autoSubscribe: false }),
             { wrapper },
         );
 
@@ -93,9 +105,11 @@ describe('Test useSocket', () => {
     });
 
     it('should be subscribed and unsubscribed few times', () => {
-        const wrapper = ({ children }: any) => (<Provider url={url}>{children}</Provider>);
+        const wrapper = ({ children }: any) =>
+            (<Provider url={url}>{children}</Provider>);
         const { result } = renderHook(
-            () => useListener('test-failed', () => {}),
+            () =>
+                useListener('test-failed', () => {}),
             { wrapper },
         );
 

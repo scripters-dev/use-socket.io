@@ -6,12 +6,15 @@ export default ({
     connected,
     open: jest.fn(),
     emit: jest.fn(),
-    on: jest.fn((eventName) => listeners.push(eventName)),
+    on: jest.fn((eventName) =>
+        listeners.push(eventName)),
     removeListener: jest.fn((eventName) => {
-        listeners = listeners.filter((event) => event !== eventName);
+        listeners = listeners.filter((event) =>
+            event !== eventName);
     }),
     disconnect: () => { connected = false; },
-    hasListeners: (eventName: string) => listeners.includes(eventName),
+    hasListeners: (eventName: string) =>
+        listeners.includes(eventName),
 });
 
 export const cleanupListeners = () => {
