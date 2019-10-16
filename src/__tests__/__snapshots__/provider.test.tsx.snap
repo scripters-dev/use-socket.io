@@ -4,14 +4,17 @@ exports[`Test provider should match snapshot 1`] = `
 <ContextProvider
   value={
     Object {
-      "connected": true,
-      "disconnect": [Function],
-      "emit": [MockFunction],
-      "hasListeners": [Function],
-      "id": "test",
-      "on": [MockFunction],
-      "open": [MockFunction],
-      "removeListener": [MockFunction],
+      "namespaces": Object {},
+      "socket": Object {
+        "connected": true,
+        "disconnect": [Function],
+        "emit": [MockFunction],
+        "hasListeners": [Function],
+        "id": "test",
+        "on": [MockFunction],
+        "open": [MockFunction],
+        "removeListener": [MockFunction],
+      },
     }
   }
 >

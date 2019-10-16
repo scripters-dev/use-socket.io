@@ -23,8 +23,7 @@ type useListenerFunction = (eventName: string, callback: SocketCallbackType, opt
     UseListenerReturn;
 
 const useListener: useListenerFunction = (eventName, callback, options = {}) => {
-    const { socket, namespaces } = useContext(Context);
-    const socketConnection = getSocketConnection(namespaces, socket, options.namespace);
+    const socketConnection = getSocketConnection(useContext(Context))(options.namespace);
     const callbackRef = useRef(callback);
 
     const subscribeToEvent = useCallback(() => {

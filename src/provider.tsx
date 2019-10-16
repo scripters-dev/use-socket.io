@@ -5,7 +5,7 @@ import Context from './context';
 
 interface ProviderProps {
     url: string,
-    namespaces: Array<string>
+    namespaces?: Array<string>
     options?: object,
 }
 
@@ -21,9 +21,11 @@ const generateNamespaces = (props: ProviderProps) =>
 class Provider extends React.Component<ProviderProps, ProviderState> {
     constructor(props: ProviderProps) {
         super(props);
+        const { url, options = {}, namespaces = [] } = props;
+
         this.state = {
-            socket: io(props.url, props.options || {}),
-            namespaces: props.namespaces.reduce(generateNamespaces(props), {}),
+            socket: io(url, options),
+            namespaces: namespaces.reduce(generateNamespaces(props), {}),
         };
     }
 

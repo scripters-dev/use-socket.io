@@ -7,13 +7,15 @@ interface emitOptions {
     namespace?: string,
 }
 
+type useEmitType = (options?: emitOptions) =>
+    (eventName: string, eventData: any) => void;
+
 const emitEvent = (socketConnection: SocketIOClient.Socket) =>
     (eventName: string, eventData: any) =>
         socketConnection.emit(eventName, eventData);
 
-export default function useEmit(options: emitOptions) {
-    const { socket, namespaces } = useContext(Context);
-    const socketConnection = getSocketConnection(namespaces, socket, options.namespace);
+const useEmit: useEmitType = (options = {}) => {
+    const socketConnection = getSocketConnection(useContext(Context))(options.namespace);
 
     if (socketConnection) {
         return emitEvent(socketConnection);
@@ -21,4 +23,6 @@ export default function useEmit(options: emitOptions) {
     return () => {
         console.warn('Emit failed - socket is not initialized'); // eslint-disable-line
     };
-}
+};
+
+export default useEmit;

@@ -3,8 +3,9 @@ import { useContext } from 'react';
 import Context from './context';
 import { getSocketConnection } from './utils';
 
-export default function useSocket(namespace?: string) {
-    const { socket, namespaces } = useContext(Context);
+type useSocketType = (namespace?: string) => SocketIOClient.Socket | null;
 
-    return getSocketConnection(namespaces, socket, namespace);
-}
+const useSocket: useSocketType = (namespace?: string) =>
+    getSocketConnection(useContext(Context))(namespace);
+
+export default useSocket;
