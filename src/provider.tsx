@@ -14,9 +14,12 @@ interface ProviderState {
     namespaces: { [namespace: string]: SocketIOClient.Socket }
 }
 
+const getUrlOrigin = (url: string) =>
+    new URL(url).origin;
+
 const generateNamespaces = (props: ProviderProps) =>
     (result: object, namespace: string) =>
-        ({ ...result, [namespace]: io(`${props.url}/${namespace}`, props.options) });
+        ({ ...result, [namespace]: io(`${getUrlOrigin(props.url)}/${namespace}`, props.options) });
 
 class Provider extends React.Component<ProviderProps, ProviderState> {
     constructor(props: ProviderProps) {
