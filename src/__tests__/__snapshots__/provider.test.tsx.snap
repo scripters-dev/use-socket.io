@@ -1,6 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test provider should match snapshot 1`] = `
+exports[`Test provider advanced example should match snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "namespaces": Object {
+        "mock": Object {
+          "connected": true,
+          "disconnect": [Function],
+          "emit": [MockFunction],
+          "hasListeners": [Function],
+          "id": "test",
+          "on": [MockFunction],
+          "open": [MockFunction],
+          "removeListener": [MockFunction],
+        },
+        "test": Object {
+          "connected": true,
+          "disconnect": [Function],
+          "emit": [MockFunction],
+          "hasListeners": [Function],
+          "id": "test",
+          "on": [MockFunction],
+          "open": [MockFunction],
+          "removeListener": [MockFunction],
+        },
+      },
+      "socket": Object {
+        "connected": true,
+        "disconnect": [Function],
+        "emit": [MockFunction],
+        "hasListeners": [Function],
+        "id": "test",
+        "on": [MockFunction],
+        "open": [MockFunction],
+        "removeListener": [MockFunction],
+      },
+    }
+  }
+>
+  Test
+</ContextProvider>
+`;
+
+exports[`Test provider basic example should match snapshot 1`] = `
 <ContextProvider
   value={
     Object {

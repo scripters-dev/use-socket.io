@@ -14,11 +14,22 @@ describe('Test provider', () => {
     const getWrapper = () =>
         shallow(
             <Provider url={url}>
-        Test
+                Test
             </Provider>,
         );
 
-    it('should match snapshot', () => {
+    const getAdvancedWrapper = () =>
+        shallow(
+            <Provider url={url} options={{ forceNew: false }} namespaces={['test', 'mock']}>
+                Test
+            </Provider>,
+        );
+
+    it('basic example should match snapshot', () => {
         expect(getWrapper()).toMatchSnapshot();
+    });
+
+    it('advanced example should match snapshot', () => {
+        expect(getAdvancedWrapper()).toMatchSnapshot();
     });
 });

@@ -14,9 +14,27 @@ jest.mock('socket.io-client', () =>
 describe('Test useSocket', () => {
     it('should be called', () => {
         const wrapper = ({ children }: any) =>
-            (<Provider url={url}>{children}</Provider>);
+            (
+                <Provider url={url}>
+                    {children}
+                </Provider>
+            );
         const { result } = renderHook(() =>
             useSocket(), { wrapper });
+
+        expect(result.current).toBeInstanceOf(Object);
+        expect(result.current).toEqual(mockSocket);
+    });
+
+    it('should be called with namespaces', () => {
+        const wrapper = ({ children }: any) =>
+            (
+                <Provider url={url} namespaces={['test']}>
+                    {children}
+                </Provider>
+            );
+        const { result } = renderHook(() =>
+            useSocket('test'), { wrapper });
 
         expect(result.current).toBeInstanceOf(Object);
         expect(result.current).toEqual(mockSocket);
