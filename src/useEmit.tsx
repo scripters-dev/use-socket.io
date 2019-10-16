@@ -5,6 +5,7 @@ import { getSocketConnection } from './utils';
 
 interface emitOptions {
     namespace?: string,
+    compress?: boolean,
 }
 
 type useEmitType = (options?: emitOptions) =>
@@ -14,10 +15,16 @@ const emitEvent = (socketConnection: SocketIOClient.Socket) =>
     (eventName: string, eventData: any) =>
         socketConnection.emit(eventName, eventData);
 
+const compressEvent = (socketConnection: SocketIOClient.Socket) =>
+    socketConnection.compress(true);
+
 const useEmit: useEmitType = (options = {}) => {
     const socketConnection = getSocketConnection(useContext(Context))(options.namespace);
 
     if (socketConnection) {
+        if (options.compress) {
+            return emitEvent(compressEvent(socketConnection));
+        }
         return emitEvent(socketConnection);
     }
     return () => {
