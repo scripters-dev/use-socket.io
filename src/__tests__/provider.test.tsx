@@ -6,14 +6,17 @@ import mockSocket from './mocks/socket-mock';
 
 const url = 'http://local.test/';
 
-jest.mock('socket.io-client', () => () => mockSocket);
+jest.mock('socket.io-client', () =>
+    () =>
+        mockSocket);
 
 describe('Test provider', () => {
-    const getWrapper = () => shallow(
-        <Provider url={url}>
+    const getWrapper = () =>
+        shallow(
+            <Provider url={url}>
         Test
-        </Provider>,
-    );
+            </Provider>,
+        );
 
     it('should match snapshot', () => {
         expect(getWrapper()).toMatchSnapshot();

@@ -1,7 +1,7 @@
 interface contextParams {
     socket: SocketIOClient.Socket | null,
     namespaces?: { [namespace: string]: SocketIOClient.Socket },
-};
+}
 
 type getSocketConnectionType = (params: contextParams) => (namespace?: string) => SocketIOClient.Socket | null;
 
