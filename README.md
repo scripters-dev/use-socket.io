@@ -33,7 +33,7 @@ yarn add @scripters/use-socket.io
 #### Provider
 ```javascript
 import React from 'react';
-import { Provider } from '@scripters/use-socketio';
+import { Provider } from '@scripters/use-socket.io';
 
 const SOCKET_URL = 'http://localhost:4000';
 const SOCKET_OPTIONS = {
@@ -48,7 +48,7 @@ const SOCKET_OPTIONS = {
 #### Provider with namespaces
 ```javascript
 import React from 'react';
-import { Provider } from '@scripters/use-socketio';
+import { Provider } from '@scripters/use-socket.io';
 
 const SOCKET_URL = 'http://localhost:4000';
 const SOCKET_OPTIONS = {
